@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      body {
+         width: 100%;
+         height: 100vh;
+         background-color: rgb(187, 128, 128);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .elemento {
+         width: 40%;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-size: 3.2rem;
+         height: 150px;
+         color: white;
+         background: linear-gradient(120deg, brown, orange);
+      }
+
+      .ajuste {
+         width: 100%;
+         display: flex;
+         justify-content: center;
+         justify-content: space-around;
+         align-items: center;
+         flex-direction: column;
+      }
+
+      .animacao {
+         width: 300px;
+         background: blueviolet;
+         transition: all 1s linear;
+      }
+
+      .cl-list  {
+         width: 30%;
+         margin-top: 10px;
+         height: 50px;
+         font-size: 1.3rem;
+      }
+   </style>
+</head>
+<body>
+   <div class="ajuste">
+      <div class="elemento" id="elemento1">MENU</div>
+      <button class="cl-list" id="sumirBtn">SUMIR</button>
+      <button class="cl-list" id="aparecerBtn">APARECER</button>
+   </div>
+   <div class="ajuste">
+      <div class="elemento" id="elemento2">MENU2</div>
+      <button class="cl-list" id="sumirBtn2">SUMIR</button>
+      <button class="cl-list" id="aparecerBtn2">APARECER</button>
+   </div>
+   <div class="ajuste">
+      <div class="elemento" id="elemento3">MENU3</div>
+      <button class="cl-list" id="sumirBtn3">SUMIR</button>
+      <button class="cl-list" id="aparecerBtn3">APARECER</button>
+   </div>
+   <div class="ajuste">
+      <div class="elemento" id="elemento4">MENU3</div>
+      <button class="cl-list" id="toggleBtn4">toggle</button>
+   </div>
+   <div>
+      <button id="delete">DELETAR TUDO</button>
+   </div>
+   
+   <script class="cl-list" src="assets/js/jquery-3.7.0.js"></script>
+   <script>
+      // 1
+      $(document).ready(function(){
+
+         $("#aparecerBtn").click(function(){
+            $("#elemento1").show()
+         })
+         $("#sumirBtn").click(function(){
+            $("#elemento1").hide()
+         })
+      })
+     // 2
+      $('#sumirBtn2').click(function(){
+         $('#elemento2').slideUp(600)
+      })
+      $('#aparecerBtn2').click(function(){
+         $('#elemento2').slideDown(500)
+      })
+     // 3
+     $('#aparecerBtn3').click(function(){
+      $('#elemento3').fadeIn()
+      $('#elemento3').css({background: "blue",fontFamily: "Arial"})
+     })
+     $('#sumirBtn3').click(function(){
+      $('#elemento3').fadeOut()
+      $('#elemento3').css({background: "red",fontFamily: "Arial"})
+     })
+     // 4 
+
+     $('#toggleBtn4').click(function(){
+         $("#elemento4").toggle("slow")
+      })
+
+     //ALTERAR CSS
+      $('#elemento4').css({background: "brown",fontFamily: "Arial"})
+
+     // ALTERAR HTML
+     $('#elemento1').click(function(){
+      $("#elemento1").before("<p> UMA COISA ANTES </P>")
+     })
+     $('#elemento1').mouseleave(function(){
+         $('#elemento1').after("<p>UMA COISA DEPOIS</p>")
+     })
+     //DELETAR 
+     $("#delete").click(function(){
+      $("div").remove()
+     })
+     //ADD CLASS
+     $('#elemento2').hover(function(){
+      $("#elemento2").addClass("animacao")
+     })
+     $('#elemento2').mouseout(function(){
+      $("#elemento2").removeClass("animacao")
+     })
+   </script>
+      
+   </script>
+</body>
+</html>
