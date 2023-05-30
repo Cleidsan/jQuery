@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+         <div id="menu">
+            <div id="barra">
+               <h1>708.***.***-70</h1>
+            </div>
+            <form action="#">
+               <input type="text" id="nome" class="digite" placeholder="Digite seu nome!">
+               <input type="email" id="email" placeholder="Digite seu E-mail!">
+               <input type="password" id="nome" placeholder="Digite sua Senha!">
+               <button type="submit">ENVIAR</button>
+               <button type="reset">RESETAR</button>
+            </form>
+         </div>
+
+
+         <figure id="slider">
+            <img src="/aula2/assets/img/car1.jpeg" alt="CARRO 1" class="imagemSlider">
+            <img src="/aula2/assets/img/img2.jfif" alt="CARRO 2" class="imagemSlider">
+            <img src="/aula2/assets/img/img3.jfif" alt="CARRO 2" class="imagemSlider">
+            <img src="/aula2/assets/img/img4.jfif" alt="CARRO 3" class="imagemSlider">
+         </figure>
+
+         <img src="img/skyline.jpg" alt="" width="450px" id="skyline">
+
+   <script src="js/jquery-3.7.0.js"></script>
+   <script>
+      // IMPRIMINDO TEXTO DINAMICO
+      $(document).ready(function(){
+         $('input').each(function(){
+            $('.digite').keyup(function(){
+               $('h1').text($(this).val())
+            }) 
+         })
+
+      })
+      // ELEMENTOS FADE NO SCROLL
+      $(window).scroll(function(){
+         var topo = $(window).scrollTop();
+         if(topo > 600) {
+            $('#skyline').fadeIn('1000')
+         } else {
+            $('#skyline').fadeOut('1000')
+         }
+      })
+      //slider
+      $(function(){
+         $('#slider img:eq(0)').addClass('ativo').show()
+         var texto = $('.ativo').attr('alt')
+         $('#slider').prepend("<p>"+texto+"</p>")
+         setInterval(slide, 3000)
+         
+         function slide() {
+            if($('.ativo').next().length) { // Sempre trocar size() por length()
+               $('.ativo').fadeOut().removeClass('ativo').next().fadeIn().addClass('ativo')
+            } else {
+               $('.ativo').fadeOut().removeClass('ativo')
+               $('#slider img:eq(0)').fadeIn().addClass('ativo')
+            }
+            var texto = $(".ativo").attr('alt')
+            $("#slider p").hide().html(texto).delay(500).fadeIn()
+         }
+      })
+   </script>
+</body>
+</html>

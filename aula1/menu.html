@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="assets/css/bootstrap.css">
+   <style>
+      .hidden {
+         display: none;
+      }
+   </style>
+</head>
+<body>
+   <div id="pagina-central" class="container-fluid bg-dark m-0 p-3">
+      <header class="container-fluid">
+         <div class="container-fluid d-flex justify-content-center">
+            <button id="btnToggle" class="btn btn-secondary">---</button>
+            <button id="btnToggle2" class="btn btn-secondary hidden">|||</button>
+         </div>
+         <nav id="menu-toggle" class="navbar container-fluid justify-content-center h2">
+            <ul class="d-flex gap-5 ">
+               <li class="nav-item nav"><a href="#" class="nav-link text-white">Home</a></li>
+               <li class="nav-item nav"><a href="#" class="nav-link text-white">Home</a></li>
+               <li class="nav-item nav"><a href="#" class="nav-link text-white">Home</a></li>
+               <li class="nav-item nav"><a href="#" class="nav-link text-white">Home</a></li>
+            </ul>
+         </nav>
+      </header>
+   </div>
+   <script src="assets/js/jquery-3.7.0.js"></script>
+   <script>
+      $('#btnToggle').click(function(){
+         $('#menu-toggle').slideUp(600)
+         $("#btnToggle").addClass("hidden")
+         $("#btnToggle2").removeClass("hidden")
+      })
+      $('#btnToggle2').click(function(){
+         $('#menu-toggle').slideDown(500)
+         $("#btnToggle2").addClass("hidden")
+         $("#btnToggle").removeClass("hidden")
+      })
+
+
+      /*
+      $('#sumirBtn2').click(function(){
+         $('#elemento2').slideUp(600)
+      })
+      $('#aparecerBtn2').click(function(){
+         $('#elemento2').slideDown(500)
+      })
+      */
+   </script>
+</body>
+</html>
